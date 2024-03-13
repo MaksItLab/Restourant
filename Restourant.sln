@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restourant", "Restourant\Restourant.csproj", "{3922D079-D3B2-4EB2-872E-75E37ADA1603}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restourant", "Restourant\Restourant.csproj", "{3922D079-D3B2-4EB2-872E-75E37ADA1603}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restourant.Domain", "Restourant.Domain\Restourant.Domain.csproj", "{C6C9A5DB-9B1D-4BDD-94C4-13B8463183C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restourant.DataAccess.Postgres", "Restourant.DataAccess.Postgres\Restourant.DataAccess.Postgres.csproj", "{5CF018B8-84F3-4ACA-B5C4-689E4104BD1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{3922D079-D3B2-4EB2-872E-75E37ADA1603}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3922D079-D3B2-4EB2-872E-75E37ADA1603}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3922D079-D3B2-4EB2-872E-75E37ADA1603}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C6C9A5DB-9B1D-4BDD-94C4-13B8463183C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C6C9A5DB-9B1D-4BDD-94C4-13B8463183C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C6C9A5DB-9B1D-4BDD-94C4-13B8463183C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C6C9A5DB-9B1D-4BDD-94C4-13B8463183C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CF018B8-84F3-4ACA-B5C4-689E4104BD1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CF018B8-84F3-4ACA-B5C4-689E4104BD1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CF018B8-84F3-4ACA-B5C4-689E4104BD1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CF018B8-84F3-4ACA-B5C4-689E4104BD1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
