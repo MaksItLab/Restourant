@@ -18,11 +18,44 @@ namespace Restourant.DataAccess.Postgres
         /// Роли сотрудников
         /// </summary>
         public DbSet<RoleEmployee> Roles { get; set; }
+        /// <summary>
+        /// Заказы
+        /// </summary>
+        public DbSet<Order> Orders {  get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        /// <summary>
+        /// Клиенты
+        /// </summary>
+        public DbSet<Client> Clients { get; set; }
+        /// <summary>
+        /// Чеки
+        /// </summary>
+        public DbSet<Check> Checks { get; set; }
+        /// <summary>
+        /// Ингридиенты
+        /// </summary>
+        public DbSet<Ingridient> Ingridients { get; set; }
+        /// <summary>
+        /// Блюда
+        /// </summary>
+        public DbSet<Dish> Dishes {  get; set; }
+        /// <summary>
+        /// Категории блюд
+        /// </summary>
+        public DbSet<CategoryDish> CategoryDishes { get; set; }
+
+
+
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
             modelBuilder.ApplyConfiguration(new RoleEmployeesConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
+            modelBuilder.ApplyConfiguration(new ClientConfiguration());
+            modelBuilder.ApplyConfiguration(new CheckConfiguration());
+            modelBuilder.ApplyConfiguration(new IngridientConfiguration());
+            modelBuilder.ApplyConfiguration(new DishConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryDishConfiguration());
             base.OnModelCreating(modelBuilder);
         }
     }

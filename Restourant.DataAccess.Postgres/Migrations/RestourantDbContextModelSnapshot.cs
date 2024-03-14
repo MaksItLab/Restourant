@@ -35,7 +35,7 @@ namespace Restourant.DataAccess.Postgres.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CategoryDish");
+                    b.ToTable("CategoryDishes");
                 });
 
             modelBuilder.Entity("Restourant.DataAccess.Postgres.Models.Check", b =>
@@ -48,7 +48,7 @@ namespace Restourant.DataAccess.Postgres.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Check");
+                    b.ToTable("Checks");
                 });
 
             modelBuilder.Entity("Restourant.DataAccess.Postgres.Models.Client", b =>
@@ -65,7 +65,7 @@ namespace Restourant.DataAccess.Postgres.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Client");
+                    b.ToTable("Clients");
                 });
 
             modelBuilder.Entity("Restourant.DataAccess.Postgres.Models.Dish", b =>
@@ -100,7 +100,7 @@ namespace Restourant.DataAccess.Postgres.Migrations
 
                     b.HasIndex("CheckId");
 
-                    b.ToTable("Dish");
+                    b.ToTable("Dishes");
                 });
 
             modelBuilder.Entity("Restourant.DataAccess.Postgres.Models.Employee", b =>
@@ -140,7 +140,7 @@ namespace Restourant.DataAccess.Postgres.Migrations
 
                     b.HasIndex("DishId");
 
-                    b.ToTable("Ingridient");
+                    b.ToTable("Ingridients");
                 });
 
             modelBuilder.Entity("Restourant.DataAccess.Postgres.Models.Order", b =>
@@ -175,7 +175,7 @@ namespace Restourant.DataAccess.Postgres.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("Order");
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("Restourant.DataAccess.Postgres.Models.RoleEmployee", b =>

@@ -19,11 +19,9 @@ namespace Restourant.DataAccess.Postgres.Configurations
 				.HasForeignKey(o => o.ClientId)
 				.HasPrincipalKey(c => c.Id);
 
-			builder
-				.HasOne(o => o.Check)
-				.WithMany(c => c.Orders)
-				.HasForeignKey(o => o.CheckId)
-				.HasPrincipalKey(c => c.Id);
+			//builder
+			//	.HasMany(o => o.Cheks)
+			//	.WithOne(c => c.
 
 			builder
 				.HasOne(o => o.Employee)

@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
 builder.Services.AddDbContext<RestourantDbContext>(options =>
 {
 	options.UseNpgsql("User ID=postgres;Password=root;Host=localhost;Port=5432;Database=Restourant;Pooling=true;");
@@ -24,6 +25,18 @@ app.MapGet("/api/employees", async (RestourantDbContext restourantDbContext) =>
 		}).ToListAsync();
 
 	return(employees);
+});
+
+app.MapGet("/api/client", async (RestourantDbContext restourantDbContext) =>
+{
+	var clients = await restourantDbContext.Clients
+		.Select(x => new
+		{
+			x.Id,
+			x.FIO,
+		}).ToListAsync();
+
+	return (clients);
 });
 
 if (!app.Environment.IsDevelopment())

@@ -29,19 +29,16 @@ namespace Restourant.DataAccess.Postgres.Models
 		/// <summary>
 		/// Чек
 		/// </summary>
-		public Check Check { get; set; }
-		/// <summary>
-		/// Идентификатор чека
-		/// </summary>
-		public int CheckId { get; set; }
-		/// <summary>
-		/// Сотрудник
-		/// </summary>
 		public Employee Employee { get; set; }
 		/// <summary>
 		/// Идентификатор сотрудника
 		/// </summary>
 		public int EmployeeId { get; set; }
+		/// <summary>
+		/// Список чеков
+		/// </summary>
+		public ICollection<Check> Cheks { get; set; }
+
 
 	}
 }

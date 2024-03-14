@@ -16,13 +16,12 @@ namespace Restourant.DataAccess.Postgres.Models
 		/// </summary>
 		public int Id { get; set; }
 		/// <summary>
-		/// Список заказов
+		/// Идентификатор Заказа
 		/// </summary>
-		public ICollection<Order> Orders { get; set;}
-
+		public int OrderId { get; set; }
 		/// <summary>
-		/// Список блюд
+		/// Идентификатор блюда
 		/// </summary>
-		public ICollection<Dish> Dishes { get; set;}
+		public int DishId { get; set; }
 	}
 }

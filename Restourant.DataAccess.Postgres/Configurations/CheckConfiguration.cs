@@ -10,17 +10,17 @@ namespace Restourant.DataAccess.Postgres.Configurations
 		{
 			builder.HasKey(c => c.Id);
 
-			builder
-				.HasMany(c => c.Orders)
-				.WithOne(o => o.Check)
-				.HasForeignKey(o => o.CheckId)
-				.HasPrincipalKey(c => c.Id);
+			//builder
+			//	.HasMany(c => c.Orders)
+			//	.WithOne(o => o.Check)
+			//	.HasForeignKey(o => o.CheckId)
+			//	.HasPrincipalKey(c => c.Id);
 
-			builder
-				.HasMany(c => c.Dishes)
-				.WithOne(d => d.Check)
-				.HasForeignKey(c => c.CheckId)
-				.HasPrincipalKey (d => d.Id);
+			//builder
+			//	.HasMany(c => c.Dishes)
+			//	.WithOne(d => d.Check)
+			//	.HasForeignKey(c => c.CheckId)
+			//	.HasPrincipalKey (d => d.Id);
 
 		}
 	}

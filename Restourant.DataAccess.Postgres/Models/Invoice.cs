@@ -14,6 +14,10 @@ namespace Restourant.DataAccess.Postgres.Models
 		/// Количество
 		/// </summary>
 		public int Count { get; set; }
+		/// <summary>
+		/// Поставка
+		/// </summary>
+		public Delivery Delivery { get; set; }
 
 
 	}
