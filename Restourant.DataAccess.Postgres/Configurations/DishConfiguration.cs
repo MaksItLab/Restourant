@@ -23,6 +23,12 @@ namespace Restourant.DataAccess.Postgres.Configurations
 				.WithMany(c => c.Dishes)
 				.HasForeignKey(d => d.CheckId)
 				.HasPrincipalKey(c => c.Id);
+
+			builder
+				.HasOne(d => d.CategoryDish)
+				.WithMany(c => c.Dishes)
+				.HasForeignKey(d => d.CategoryDishId)
+				.HasPrincipalKey(c => c.Id);
 		}
 	}
 }

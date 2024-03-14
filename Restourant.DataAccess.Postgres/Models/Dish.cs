@@ -39,6 +39,14 @@ namespace Restourant.DataAccess.Postgres.Models
 		/// Идентификатор чека
 		/// </summary>
 		public int CheckId { get; set; }
+		/// <summary>
+		/// Категория блюда
+		/// </summary>
+		public CategoryDish CategoryDish { get; set; }
+		/// <summary>
+		/// Идентификатор категории блюда
+		/// </summary>
+		public int CategoryDishId { get; set; }
 
 	}
 }
