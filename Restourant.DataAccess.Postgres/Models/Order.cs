@@ -26,6 +26,22 @@ namespace Restourant.DataAccess.Postgres.Models
 		/// Идентификатор клиента
 		/// </summary>
 		public int ClientId { get; set; }
+		/// <summary>
+		/// Чек
+		/// </summary>
+		public Check Check { get; set; }
+		/// <summary>
+		/// Идентификатор чека
+		/// </summary>
+		public int CheckId { get; set; }
+		/// <summary>
+		/// Сотрудник
+		/// </summary>
+		public Employee Employee { get; set; }
+		/// <summary>
+		/// Идентификатор сотрудника
+		/// </summary>
+		public int EmployeeId { get; set; }
 
 	}
 }

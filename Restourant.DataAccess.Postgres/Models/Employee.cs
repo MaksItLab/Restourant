@@ -24,5 +24,9 @@
         /// Роль
         /// </summary>
         public RoleEmployee Role { get; set; }
+        /// <summary>
+        /// Список заказов
+        /// </summary>
+        public ICollection<Order> Orders { get; set; }
     }
 }
