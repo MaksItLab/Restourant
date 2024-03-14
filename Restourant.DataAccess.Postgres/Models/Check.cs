@@ -19,6 +19,7 @@ namespace Restourant.DataAccess.Postgres.Models
 		/// Список заказов
 		/// </summary>
 		public ICollection<Order> Orders { get; set;}
+
 		/// <summary>
 		/// Список блюд
 		/// </summary>
