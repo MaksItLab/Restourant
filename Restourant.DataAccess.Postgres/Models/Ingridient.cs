@@ -7,21 +7,22 @@ using System.Threading.Tasks;
 namespace Restourant.DataAccess.Postgres.Models
 {
 	/// <summary>
-	/// Чек
+	/// Ингридинет
 	/// </summary>
-	public class Check
+	public class Ingridient
 	{
 		/// <summary>
 		/// Идентификатор
 		/// </summary>
 		public int Id { get; set; }
 		/// <summary>
-		/// Список заказов
+		/// Блюдо
 		/// </summary>
-		public ICollection<Order> Orders { get; set;}
+		public Dish Dish { get; set; }
 		/// <summary>
-		/// Список блюд
+		/// Идентификатор блюдо
 		/// </summary>
-		public ICollection<Dish> Dishes { get; set;}
+		public int DishId { get; set; }
+
 	}
 }
