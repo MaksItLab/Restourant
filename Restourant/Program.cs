@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<RestourantDbContext>(options =>
 {
-	options.UseNpgsql("User ID=postgres;Password=root;Host=localhost;Port=5432;Database=Restorant;Pooling=true;");
+	options.UseNpgsql("User ID=postgres;Password=root;Host=localhost;Port=5432;Database=Restourant;Pooling=true;");
 });
 
 var app = builder.Build();
