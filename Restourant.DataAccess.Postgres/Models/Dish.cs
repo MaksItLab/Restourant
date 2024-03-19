@@ -32,13 +32,9 @@ namespace Restourant.DataAccess.Postgres.Models
 		/// </summary>
 		public List<Ingridient> Ingridients { get; set;}
 		/// <summary>
-		/// Чек
+		/// Список чеков
 		/// </summary>
-		public Check Check { get; set;}
-		/// <summary>
-		/// Идентификатор чека
-		/// </summary>
-		public int CheckId { get; set; }
+		public List<Check> Checks { get; set;}
 		/// <summary>
 		/// Категория блюда
 		/// </summary>

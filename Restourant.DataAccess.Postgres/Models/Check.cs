@@ -20,8 +20,17 @@ namespace Restourant.DataAccess.Postgres.Models
 		/// </summary>
 		public int OrderId { get; set; }
 		/// <summary>
+		/// Заказ
+		/// </summary>
+		public Order Order { get; set; }
+		/// <summary>
 		/// Идентификатор блюда
 		/// </summary>
 		public int DishId { get; set; }
+		/// <summary>
+		/// Блюдо
+		/// </summary>
+		public Dish Dish { get; set; }
+
 	}
 }

@@ -22,5 +22,13 @@ namespace Restourant.DataAccess.Postgres.Models
 		/// Идентификатор поставщика
 		/// </summary>
 		public int ProviderId { get; set; }
+
+		/// <summary>
+		/// Накладная
+		/// </summary>
+		public Invoice Invoice { get; set; }
+
+		
+
 	}
 }

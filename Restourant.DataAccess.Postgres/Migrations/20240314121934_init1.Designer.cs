@@ -11,8 +11,8 @@ using Restourant.DataAccess.Postgres;
 namespace Restourant.DataAccess.Postgres.Migrations
 {
     [DbContext(typeof(RestourantDbContext))]
-    [Migration("20240314081202_init2")]
-    partial class init2
+    [Migration("20240314121934_init1")]
+    partial class init1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,7 +38,7 @@ namespace Restourant.DataAccess.Postgres.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CategoryDish");
+                    b.ToTable("CategoryDishes");
                 });
 
             modelBuilder.Entity("Restourant.DataAccess.Postgres.Models.Check", b =>
@@ -49,9 +49,19 @@ namespace Restourant.DataAccess.Postgres.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("DishId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Check");
+                    b.HasIndex("DishId");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("Checks");
                 });
 
             modelBuilder.Entity("Restourant.DataAccess.Postgres.Models.Client", b =>
@@ -68,7 +78,7 @@ namespace Restourant.DataAccess.Postgres.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Client");
+                    b.ToTable("Clients");
                 });
 
             modelBuilder.Entity("Restourant.DataAccess.Postgres.Models.Dish", b =>
@@ -80,9 +90,6 @@ namespace Restourant.DataAccess.Postgres.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<int>("CategoryDishId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("CheckId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Description")
@@ -101,9 +108,7 @@ namespace Restourant.DataAccess.Postgres.Migrations
 
                     b.HasIndex("CategoryDishId");
 
-                    b.HasIndex("CheckId");
-
-                    b.ToTable("Dish");
+                    b.ToTable("Dishes");
                 });
 
             modelBuilder.Entity("Restourant.DataAccess.Postgres.Models.Employee", b =>
@@ -143,7 +148,7 @@ namespace Restourant.DataAccess.Postgres.Migrations
 
                     b.HasIndex("DishId");
 
-                    b.ToTable("Ingridient");
+                    b.ToTable("Ingridients");
                 });
 
             modelBuilder.Entity("Restourant.DataAccess.Postgres.Models.Order", b =>
@@ -153,9 +158,6 @@ namespace Restourant.DataAccess.Postgres.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CheckId")
-                        .HasColumnType("integer");
 
                     b.Property<int>("ClientId")
                         .HasColumnType("integer");
@@ -172,13 +174,11 @@ namespace Restourant.DataAccess.Postgres.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CheckId");
-
                     b.HasIndex("ClientId");
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("Order");
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("Restourant.DataAccess.Postgres.Models.RoleEmployee", b =>
@@ -198,6 +198,25 @@ namespace Restourant.DataAccess.Postgres.Migrations
                     b.ToTable("Roles");
                 });
 
+            modelBuilder.Entity("Restourant.DataAccess.Postgres.Models.Check", b =>
+                {
+                    b.HasOne("Restourant.DataAccess.Postgres.Models.Dish", "Dish")
+                        .WithMany("Checks")
+                        .HasForeignKey("DishId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Restourant.DataAccess.Postgres.Models.Order", "Order")
+                        .WithMany("Cheks")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Dish");
+
+                    b.Navigation("Order");
+                });
+
             modelBuilder.Entity("Restourant.DataAccess.Postgres.Models.Dish", b =>
                 {
                     b.HasOne("Restourant.DataAccess.Postgres.Models.CategoryDish", "CategoryDish")
@@ -206,15 +225,7 @@ namespace Restourant.DataAccess.Postgres.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Restourant.DataAccess.Postgres.Models.Check", "Check")
-                        .WithMany("Dishes")
-                        .HasForeignKey("CheckId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("CategoryDish");
-
-                    b.Navigation("Check");
                 });
 
             modelBuilder.Entity("Restourant.DataAccess.Postgres.Models.Employee", b =>
@@ -241,12 +252,6 @@ namespace Restourant.DataAccess.Postgres.Migrations
 
             modelBuilder.Entity("Restourant.DataAccess.Postgres.Models.Order", b =>
                 {
-                    b.HasOne("Restourant.DataAccess.Postgres.Models.Check", "Check")
-                        .WithMany("Orders")
-                        .HasForeignKey("CheckId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Restourant.DataAccess.Postgres.Models.Client", "Client")
                         .WithMany("Orders")
                         .HasForeignKey("ClientId")
@@ -259,8 +264,6 @@ namespace Restourant.DataAccess.Postgres.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Check");
-
                     b.Navigation("Client");
 
                     b.Navigation("Employee");
@@ -271,13 +274,6 @@ namespace Restourant.DataAccess.Postgres.Migrations
                     b.Navigation("Dishes");
                 });
 
-            modelBuilder.Entity("Restourant.DataAccess.Postgres.Models.Check", b =>
-                {
-                    b.Navigation("Dishes");
-
-                    b.Navigation("Orders");
-                });
-
             modelBuilder.Entity("Restourant.DataAccess.Postgres.Models.Client", b =>
                 {
                     b.Navigation("Orders");
@@ -285,12 +281,19 @@ namespace Restourant.DataAccess.Postgres.Migrations
 
             modelBuilder.Entity("Restourant.DataAccess.Postgres.Models.Dish", b =>
                 {
+                    b.Navigation("Checks");
+
                     b.Navigation("Ingridients");
                 });
 
             modelBuilder.Entity("Restourant.DataAccess.Postgres.Models.Employee", b =>
                 {
                     b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("Restourant.DataAccess.Postgres.Models.Order", b =>
+                {
+                    b.Navigation("Cheks");
                 });
 
             modelBuilder.Entity("Restourant.DataAccess.Postgres.Models.RoleEmployee", b =>

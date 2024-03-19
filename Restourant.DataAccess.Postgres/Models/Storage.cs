@@ -1,28 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Restourant.DataAccess.Postgres.Models
 {
 	/// <summary>
-	/// Ингридинет
+	/// Склад
 	/// </summary>
-	public class Ingridient
+	public class Storage
 	{
 		/// <summary>
 		/// Идентификатор
 		/// </summary>
 		public int Id { get; set; }
 		/// <summary>
-		/// Блюдо
+		/// Цена
 		/// </summary>
-		public Dish Dish { get; set; }
+		public double Price { get; set; }
 		/// <summary>
-		/// Идентификатор блюдо
+		/// Остаток
 		/// </summary>
-		public int DishId { get; set; }
+		public int Remmainder { get; set; }
 		/// <summary>
 		/// Продукт
 		/// </summary>
@@ -31,8 +26,5 @@ namespace Restourant.DataAccess.Postgres.Models
 		/// Идентификатор продукта
 		/// </summary>
 		public int ProductId { get; set; }
-
-
-
 	}
 }

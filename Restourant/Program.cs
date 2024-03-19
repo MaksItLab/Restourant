@@ -39,6 +39,8 @@ app.MapGet("/api/client", async (RestourantDbContext restourantDbContext) =>
 	return (clients);
 });
 
+app.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id}");
+
 if (!app.Environment.IsDevelopment())
 {
 	app.UseExceptionHandler("/Error");

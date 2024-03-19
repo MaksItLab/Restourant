@@ -37,8 +37,8 @@ namespace Restourant.DataAccess.Postgres.Models
 		/// <summary>
 		/// Список чеков
 		/// </summary>
-		public ICollection<Check> Cheks { get; set; }
-
+		public ICollection<Check> Checks { get; set; }
+	
 
 	}
 }
