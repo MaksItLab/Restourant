@@ -1,0 +1,38 @@
+﻿@model List<Employee>
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Фамилия Имя Отчество</th>
+					<th>Идентификатор роли</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td>@item.Id</td>
+						<td>@item.FIO</td>
+						<td>@item.RoleId</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+
+		<a class="btn btn-primary" asp-controller="Home" asp-action="Index">Home</a>
+	</div>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
