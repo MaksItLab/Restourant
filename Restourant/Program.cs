@@ -27,17 +27,7 @@ app.MapGet("/api/employees", async (RestourantDbContext restourantDbContext) =>
 	return(employees);
 });
 
-app.MapGet("/api/client", async (RestourantDbContext restourantDbContext) =>
-{
-	var clients = await restourantDbContext.Clients
-		.Select(x => new
-		{
-			x.Id,
-			x.FIO,
-		}).ToListAsync();
 
-	return (clients);
-});
 
 app.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id}");
 
@@ -45,12 +35,6 @@ if (!app.Environment.IsDevelopment())
 {
 	app.UseExceptionHandler("/Error");
 }
-
-app.UseStaticFiles();
-
-app.UseRouting();
-
-app.UseAuthorization();
 
 app.MapRazorPages();
 
